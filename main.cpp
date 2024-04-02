@@ -43,10 +43,10 @@ public:
         return *this;
     }
     Blouse(const Blouse& other) : Garment(other.garmentCode, other.garmentColor) {} // Constructor de copiere
-    ~Blouse() //destructor
-    {
+    ~Blouse() = default; //destructor
+    /*{
         std::cout << "Destructor for " << garmentCode << " " << garmentColor << std::endl;
-    }
+    }*/
     friend std::ostream& operator<<(std::ostream& os, const Blouse& b) //operator<<
     {
         os << "Blouse: " << b.garmentCode << ", color: " << b.garmentColor;
@@ -86,10 +86,10 @@ public:
         return *this;
     }
     Dress(const Dress& other): Garment(other.garmentCode, other.garmentColor) {} //constructor de copiere
-    ~Dress() //destructor
-    {
+    ~Dress() = default; //destructor
+    /*{
         std::cout << "Destructor for " << garmentCode << " " << garmentColor << std::endl;
-    }
+    }*/
     friend std::ostream& operator<<(std::ostream& os, const Dress& d) //operator<<
     {
         os << "Dress: " << d.garmentCode << ", color: " << d.garmentColor;
@@ -129,10 +129,10 @@ public:
         return *this;
     }
     Skirt(const Skirt& other): Garment(other.garmentCode, other.garmentColor) {} //constructor de copiere
-    ~Skirt()
-    {
+    ~Skirt() = default; //destructor
+    /*{
         std::cout << "Destructor for " << garmentCode << " " << garmentColor << std::endl;
-    }
+    }*/
     friend std::ostream& operator<<(std::ostream& os, const Skirt& s) //operator<<
     {
         os << "Skirt: " << s.garmentCode << ", color: " << s.garmentColor;
@@ -172,10 +172,10 @@ public:
         return *this;
     }
     Pants(const Pants& other): Garment(other.garmentCode, other.garmentColor) {} //constructor de copiere
-    ~Pants()
-    {
+    ~Pants() = default; //destructor
+    /*{
         std::cout << "Destructor for " << garmentCode << " " << garmentColor << std::endl;
-    }
+    }*/
     friend std::ostream& operator<<(std::ostream& os, const Pants& p) //operator<<
     {
         os << "Pants: " << p.garmentCode << ", color: " << p.garmentColor;
@@ -191,31 +191,107 @@ public:
     }
 };
 
+class Barbie
+{
+private:
+    Blouse currentBlouse;
+    Dress currentDress;
+    Skirt currentSkirt;
+    Pants currentPants;
+public:
+    Barbie(const Blouse& currentBlouse, const Dress& currentDress, const Skirt& currentSkirt, const Pants& currentPants): currentBlouse(currentBlouse), currentDress(currentDress), currentSkirt(currentSkirt), currentPants(currentPants) {}
+    //Barbie(const std::string& blouseCode, const std::string& dressCode, const std::string& skirtCode, const std::string& pantsCode): currentBlouse(blouseCode, ""), currentDress(dressCode, ""), currentSkirt(skirtCode, ""), currentPants(pantsCode, "") {}
+    void addBlouse(const Blouse& blouse)
+    {
+        currentBlouse = blouse;
+    }
+    void addDress(const Dress& dress)
+    {
+        currentDress = dress;
+    }
+    void addSkirt(const Skirt& skirt)
+    {
+        currentSkirt = skirt;
+    }
+    void addPants(const Pants& pants)
+    {
+        currentPants = pants;
+    }
+    void removeBlouse()
+    {
+        currentBlouse.setBlouse("none", "none");
+    }
+    void removeDress()
+    {
+        currentDress.setDress("none", "none");
+    }
+    void removeSkirt()
+    {
+        currentSkirt.setSkirt("none", "none");
+    }
+    void removePants()
+    {
+        currentPants.setPants("none", "none");
+    }
+    void display() const
+    {
+        std::cout << "Barbie is wearing: \n";
+        std::cout << currentBlouse<< std::endl;
+        std::cout << currentDress<< std::endl;
+        std::cout << currentSkirt<< std::endl;
+        std::cout << currentPants<< std::endl;
+    }
+};
+
 int main()
 {
     Blouse blouse1("#BT1CR", "Red"), blouse2("#BT1CB", "Blue"), blouse3("#BT1CG", "Green"), blouse4("#BT1CY", "Yellow");
     Dress dress1("#DT1CR", "Red"), dress2("#DT1CB", "Blue"), dress3("#DT1CG", "Green"), dress4("#DT1CY", "Yellow");
     Skirt skirt1("#ST1CR", "Red"), skirt2("#ST1CB", "Blue"), skirt3("#ST1CG", "Green"), skirt4("#ST1CY", "Yellow");
     Pants pants1("#PT1CR", "Red"), pants2("#PT1CB", "Blue"), pants3("#PT1CG", "Green"), pants4("#PT1CY", "Yellow");
-    blouse1.show();
+    Blouse noneB("none", "none");
+    Dress noneD("none", "none");
+    Skirt noneS("none", "none");
+    Pants noneP("none", "none");
+
+    ///Test for Blouse
+    /*blouse1.show();
     blouse1 = blouse3;
     blouse1.show();
     blouse2.setBlouse("#BT3CP", "Purple");
-    blouse2.show();
+    blouse2.show();*/
 
-    dress3.show();
+    ///Test for Dress
+    /*dress3.show();
     dress3 = dress2;
     dress2.setDress("#DT2CY", "Yellow");
-    dress2.show();
+    dress2.show();*/
 
-    skirt1.setSkirt("#ST1CP", "Pink");
+    ///Test for Skirt
+    /*skirt1.setSkirt("#ST1CP", "Pink");
     skirt2 = skirt4;
     skirt1.show();
-    skirt2.show();
+    skirt2.show();*/
 
-    pants3 = pants1;
+    ///Test for Pants
+    /*pants3 = pants1;
     pants3.show();
     pants1.setPants("#PT2CB", "Blue");
-    pants1.show();
+    pants1.show();*/
+
+    Barbie myBarbie(noneB, noneD, noneS, noneP);
+
+    myBarbie.addDress(dress2);
+    myBarbie.display();
+    myBarbie.removeDress();
+    myBarbie.addBlouse(blouse2);
+    myBarbie.addSkirt(skirt3);
+    myBarbie.display();
+    skirt3.setSkirt("#ST1CP", "Purple");
+    skirt1 = skirt3;
+    skirt1.show();
+    myBarbie.removeSkirt();
+    myBarbie.addSkirt(skirt1);
+    myBarbie.display();
     return 0;
 }
