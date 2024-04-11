@@ -8,6 +8,12 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
+                "Barbie.cpp",
+                "Blouse.cpp",
+                "Dress.cpp",
+                "Garment.cpp",
+                "Pants.cpp",
+                "Skirt.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],

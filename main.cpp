@@ -42,7 +42,7 @@ public:
         }
         return *this;
     }
-    Blouse(const Blouse& other) : Garment(other.garmentCode, other.garmentColor) {} // Constructor de copiere
+    Blouse(const Blouse& other) : Garment(other) {} // Constructor de copiere
     ~Blouse() = default; //destructor
     /*{
         std::cout << "Destructor for " << garmentCode << " " << garmentColor << std::endl;
@@ -85,7 +85,7 @@ public:
         }
         return *this;
     }
-    Dress(const Dress& other): Garment(other.garmentCode, other.garmentColor) {} //constructor de copiere
+    Dress(const Dress& other): Garment(other) {} //constructor de copiere
     ~Dress() = default; //destructor
     /*{
         std::cout << "Destructor for " << garmentCode << " " << garmentColor << std::endl;
@@ -128,7 +128,7 @@ public:
         }
         return *this;
     }
-    Skirt(const Skirt& other): Garment(other.garmentCode, other.garmentColor) {} //constructor de copiere
+    Skirt(const Skirt& other): Garment(other) {} //constructor de copiere
     ~Skirt() = default; //destructor
     /*{
         std::cout << "Destructor for " << garmentCode << " " << garmentColor << std::endl;
@@ -171,7 +171,7 @@ public:
         }
         return *this;
     }
-    Pants(const Pants& other): Garment(other.garmentCode, other.garmentColor) {} //constructor de copiere
+    Pants(const Pants& other): Garment(other) {} //constructor de copiere
     ~Pants() = default; //destructor
     /*{
         std::cout << "Destructor for " << garmentCode << " " << garmentColor << std::endl;
