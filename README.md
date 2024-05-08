@@ -7,9 +7,9 @@ I have adopted and implemented the concept of "Barbie Dress Up" games, a very po
 * Using the principle of inheritance, I have created four derived classes from the "Garment" class, representing different types of clothing: "Blouse," "Dress," "Pants," and "Skirt." Each class includes:
     1. a constructor
     2. a copy constructor
-3. a setter
-4. a destructor
-5. operator=
-6. operator<<
-7. operator>>. 
+    3. a setter
+    4. a destructor
+    5. operator=
+    6. operator<<
+    7. operator>>. 
 * Then, I created a class called "Barbie," which represents the Barbie doll itself. Through the "Barbie" class, we upgrade her physical appearance by repeatedly adding and removing various clothes.
